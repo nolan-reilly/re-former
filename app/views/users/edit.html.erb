@@ -13,7 +13,7 @@
 
     <div>
       <%= form.label :password %>
-      <%= form.password_field :password%>
+      <%= form.password_field :password %>
   </div>
 
   <% if @user.errors.any? %>
@@ -31,29 +31,30 @@
   <%= form.submit %>
 <% end %>
 
-<%#= form_with url: "/users",  method: "post" do %>
+
+<%#= form_with url: "/users/#{@user.id}",  method: "patch" do %>
 <!--  <div>-->
     <%#= label_tag "user[email]", "Email" %>
-    <%#= text_field_tag "user[email]" %>
+    <%#= text_field_tag "user[email]", @user.email %>
 <!--  </div>
 
   <div>
     <%#= label_tag "user[username]", "Username" %>-->
-    <%#= text_field_tag "user[username]" %>
+    <%#= text_field_tag "user[username]", @user.username %>
 <!--  </div>
 
   <div>
     <%#= label_tag "user[password]", "Password" %>-->
-    <%#= password_field_tag "user[password]" %>
+    <%#= password_field_tag "user[password]", @user.password %>
 <!--  </div>
-
 
   <%#= submit_tag "Submit" %>-->
 <%# end %>
 
-<!--
-<form action="/users" accept-charset="UTF-8" method="post" data-turbo="false">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<!--<form action="/users/<%#= @user.id %>" accept-charset="UTF-8" method="post" data-turbo="false">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_token %>">
 
   <div>
     <label for="email">Email</label>
@@ -73,5 +74,4 @@
   <div>
     <input type="submit">
   </div>
-</form>
--->
+</form>-->
